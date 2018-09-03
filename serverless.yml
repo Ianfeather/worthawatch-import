@@ -1,0 +1,11 @@
+service: worthawatch-import
+app: worthawatch-import
+tenant: ianfeather
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: worthawatch
+
+functions:
+  import:
+    handler: handler.import
