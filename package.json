@@ -10,7 +10,8 @@
   "license": "ISC",
   "scripts": {
     "test": "mocha test/**/*.test.js",
-    "test-w": "mocha --watch test/**/*.test.js"
+    "test-w": "mocha --watch test/**/*.test.js",
+    "logs": "serverless logs -f import -t"
   },
   "dependencies": {
     "request": "^2.87.0"
