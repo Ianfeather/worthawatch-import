@@ -9,3 +9,7 @@ provider:
 functions:
   import:
     handler: handler.import
+
+package:
+  exclude:
+    - test/**
