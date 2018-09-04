@@ -11,9 +11,14 @@
   "scripts": {
     "test": "mocha test/**/*.test.js",
     "test-w": "mocha --watch test/**/*.test.js",
-    "logs": "serverless logs -f import -t"
+    "logs": "serverless --aws-profile=worthawatch logs -f import -t",
+    "deploy": "serverless --aws-profile=worthawatch deploy --function import",
+    "invoke": "serverless --aws-profile=worthawatch invoke -f import -l"
   },
   "dependencies": {
+    "aws-param-store": "^2.0.0",
+    "aws-sdk": "^2.307.0",
+    "node-fetch": "^2.2.0",
     "request": "^2.87.0"
   },
   "devDependencies": {
