@@ -5,6 +5,6 @@ const getData = require('../lib/get-data')
 
 describe('get-data', () => {
   it('works', () => {
-    expect(getData().foo).to.equal('bar')
+    expect(getData().foo).to.equal('hello')
   })
 })
