@@ -4,6 +4,7 @@ tenant: ianfeather
 provider:
   name: aws
   runtime: nodejs8.10
+  timeout: 120
   iamRoleStatements:
     - Effect: "Allow"
       Action:
