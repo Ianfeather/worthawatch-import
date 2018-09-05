@@ -13,7 +13,7 @@
     "test-w": "mocha --watch test/**/*.test.js",
     "logs": "serverless --aws-profile=worthawatch logs -f import -t",
     "deploy": "serverless --aws-profile=worthawatch deploy --function import",
-    "invoke": "serverless --aws-profile=worthawatch invoke -f import -l"
+    "invoke": "serverless --aws-profile=worthawatch invoke -f import -l -d '{\"date\": \"20160424\"}'"
   },
   "dependencies": {
     "@ambassify/fetch-retried": "^1.1.0",
