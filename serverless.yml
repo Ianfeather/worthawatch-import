@@ -4,7 +4,10 @@ tenant: ianfeather
 provider:
   name: aws
   runtime: nodejs8.10
+  region: us-east-1
   timeout: 120
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -12,7 +15,37 @@ provider:
         - "ssm:GetParametersByPath"
         - "ssm:GetParameters"
         - "ssm:GetParameter"
-      Resource: "arn:aws:ssm:us-east-1:453352932084:parameter/*"
+      Resource: "arn:aws:ssm:us-east-1:*:parameter/*"
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+resources:
+  Resources:
+    WorthAWatchDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        AttributeDefinitions:
+          -
+            AttributeName: date
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: date
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
+
 
 functions:
   import:
