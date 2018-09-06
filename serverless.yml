@@ -8,6 +8,7 @@ provider:
   timeout: 120
   environment:
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    ENV: ${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -55,6 +56,10 @@ resources:
 functions:
   import:
     handler: handler.import
+  token:
+    handler: handler.token
+    events:
+      - schedule: cron(0 8 * * ? *) # run daily at 8am
 
 package:
   exclude:
