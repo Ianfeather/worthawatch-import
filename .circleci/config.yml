@@ -17,7 +17,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: Install Serverless CLI and dependencies
+          name: Install dependencies
           command: npm install
 
       - save_cache:
@@ -37,6 +37,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies
+          command: npm install
+      - run:
           name: Install Serverless CLI
           command: sudo npm i -g serverless
       - run:
@@ -49,6 +52,9 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
       - run:
           name: Install Serverless CLI and dependencies
           command: sudo npm i -g serverless
