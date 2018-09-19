@@ -12,6 +12,7 @@
     "test": "mocha test/**/*.test.js",
     "test-w": "mocha --watch test/**/*.test.js",
     "logs": "serverless --aws-profile=worthawatch logs -f import -t",
+    "token": "aws --profile=worthawatch ssm put-parameter --type 'String' --name '/worthawatch/erikberg-api-key' --value 'TOKEN' --overwrite",
     "deploy": "serverless --aws-profile=worthawatch deploy --function import",
     "invoke": "serverless --aws-profile=worthawatch invoke -f import -l -d '{\"date\": \"20160424\"}'"
   },
