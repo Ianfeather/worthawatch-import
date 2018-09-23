@@ -56,6 +56,8 @@ resources:
 functions:
   import:
     handler: handler.import
+    events:
+      - schedule: cron(0 0-7,20-23 * * ? *) # run daily, every hour, from 8pm until 7am
   token:
     handler: handler.token
     events:
