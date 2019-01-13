@@ -31,6 +31,12 @@ You can invoke this function locally and view the logs by running:
 serverless --aws-profile=worthawatch invoke -f import -l
 ```
 
+You can pass a custom date to the function via the cli too:
+
+```
+serverless --aws-profile=worthawatch invoke -f import -l -d '{"date": {"yesterday": "20190111", "today": "20190112}}'
+```
+
 note: you will need to have set up an AWS profile with your IAM role.
 
 ### Master builds
