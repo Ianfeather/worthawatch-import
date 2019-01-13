@@ -20,6 +20,7 @@
     "@ambassify/fetch-retried": "^1.1.0",
     "aws-param-store": "^2.0.0",
     "aws-sdk": "^2.307.0",
+    "nba": "^4.5.0",
     "node-fetch": "^2.2.0",
     "request": "^2.87.0"
   },
