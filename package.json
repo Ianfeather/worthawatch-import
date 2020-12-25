@@ -21,7 +21,7 @@
     "aws-param-store": "^2.0.0",
     "aws-sdk": "^2.307.0",
     "nba": "^4.13.0",
-    "node-fetch": "^2.2.0",
+    "node-fetch": "^2.6.1",
     "request": "^2.87.0"
   },
   "devDependencies": {
