@@ -3,7 +3,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:8.11
+      - image: circleci/node:12
 
     working_directory: ~/repo
 
@@ -32,7 +32,7 @@ jobs:
 
   deploy_branch:
     docker:
-      - image: circleci/node:8.11
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - checkout
@@ -41,14 +41,14 @@ jobs:
           command: npm install
       - run:
           name: Install Serverless CLI
-          command: sudo npm i -g serverless
+          command: sudo npm i --unsafe-perm -g serverless
       - run:
           name: Deploy Master to import-dev
           command: serverless deploy
 
   deploy_prod:
     docker:
-      - image: circleci/node:8.11
+      - image: circleci/node:12
     working_directory: ~/repo
     steps:
       - checkout
@@ -57,7 +57,7 @@ jobs:
           command: npm install
       - run:
           name: Install Serverless CLI and dependencies
-          command: sudo npm i -g serverless
+          command: sudo npm i --unsafe-perm -g serverless
       - run:
           name: Deploy Master to import-prod
           command: serverless deploy --stage prod

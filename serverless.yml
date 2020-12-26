@@ -1,9 +1,8 @@
 service: worthawatch-import
 app: worthawatch-import
-tenant: ianfeather
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   region: us-east-1
   timeout: 120
   environment:
