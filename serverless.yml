@@ -1,6 +1,5 @@
 service: worthawatch-import
 app: worthawatch-import
-tenant: ianfeather
 provider:
   name: aws
   runtime: nodejs12.x
